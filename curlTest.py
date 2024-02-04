@@ -9,10 +9,8 @@ from geminiApiRequest import Content
 from geminiApiRequest import Part
 
 # Set the API endpoint and API key.
-# api_endpoint = config('API_BASE_URL')
-# api_endpoint += "v1beta/models/gemini-pro:generateContent"
-
-api_endpoint = "https://fabulous-sunshine-11d8b0.netlify.app/v1beta/models/gemini-pro:generateContent"
+api_endpoint = config('API_BASE_URL')
+api_endpoint += "v1beta/models/gemini-pro:generateContent"
 
 api_key = config('GEMINI_API_KEY')
 
@@ -32,8 +30,6 @@ plain_response = requests.post(api_endpoint, headers=headers, json=request, para
 
 # Get the response data.
 response_data = plain_response.json()
-
-print(response_data)
 
 response = GeminiResponse.from_dict(response_data)
 
